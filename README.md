@@ -10,7 +10,7 @@ For production setup, use [AWS Amplify](https://docs.amplify.aws/start/q/integra
 
 ## Deployment 
 
-After deploying your SageMake Jumpstart model, collect the model inference endpoint from the Notebook.  Report the model endpoint ID to `config.tsx`
+After deploying your SageMaker JumpStart model, collect the model inference endpoint from the Jupyter Notebook provided by SageMaker JumpStart.  Report the model endpoint ID to `config.tsx`
 
 To test locally : 
 
@@ -18,7 +18,23 @@ To test locally :
 npm install # install the dependencies
 mv src/config-ADJUST-AND-RENAME.tsx src/confix.tsx # prepare a config file
 
-# edit config.tsx with your model endpoint (taken from SageMaker Jumpstart's Notebook) + your access key and secret key id
+# edit config.tsx with your model endpoint (taken from SageMaker Jumpstart's Notebook) + an access key and secret key id from an AWS IAM user having permission to invoke `sagemaker:InvokeEndpoint` API.
+
+# An example IAM policy would be :
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "sagemaker:InvokeEndpoint",
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 npm start 
 ```
