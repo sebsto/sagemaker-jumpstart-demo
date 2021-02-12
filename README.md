@@ -20,7 +20,10 @@ mv src/config-ADJUST-AND-RENAME.tsx src/confix.tsx # prepare a config file
 
 # edit config.tsx with your model endpoint (taken from SageMaker Jumpstart's Notebook) + an access key and secret key id from an AWS IAM user having permission to invoke `sagemaker:InvokeEndpoint` API.
 
-# An example IAM policy would be :
+npm start 
+```
+
+## Example IAM Policy 
 
 ```json
 {
@@ -34,7 +37,4 @@ mv src/config-ADJUST-AND-RENAME.tsx src/confix.tsx # prepare a config file
         }
     ]
 }
-```
-
-npm start 
 ```
